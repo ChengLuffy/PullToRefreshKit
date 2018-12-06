@@ -18,7 +18,7 @@ open class ElasticRefreshHeader: UIView,RefreshableHeader {
         control = ElasticRefreshControl(frame: frame)
         super.init(frame: frame)
         self.autoresizingMask = .flexibleWidth
-        self.backgroundColor = UIColor.white
+        self.backgroundColor = UIColor.clear
         imageView.frame = CGRect(x: 0, y: 0, width: 16, height: 16)
         textLabel.font = UIFont.systemFont(ofSize: 12)
         textLabel.textAlignment = .center
@@ -37,6 +37,15 @@ open class ElasticRefreshHeader: UIView,RefreshableHeader {
     
     required public init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    public func stateDidChanged(_ oldState: RefreshHeaderState, newState: RefreshHeaderState) {
+        guard newState == .pulling else { return }
+        if #available(iOS 10.0, *) {
+            let generator = UIImpactFeedbackGenerator(style: .heavy)
+            generator.prepare()
+            generator.impactOccurred()
+        }
     }
     
     open override func layoutSubviews() {
