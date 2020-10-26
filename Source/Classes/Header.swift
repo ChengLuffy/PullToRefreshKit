@@ -232,7 +232,7 @@ open class RefreshHeaderContainer:UIView{
     fileprivate var _state:RefreshHeaderState = .idle
     fileprivate var insetTDelta:CGFloat = 0.0
     fileprivate var delayTimer:Timer?
-    fileprivate var state:RefreshHeaderState{
+    open var state:RefreshHeaderState{
         get{
             return _state
         }

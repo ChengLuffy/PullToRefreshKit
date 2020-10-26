@@ -97,6 +97,13 @@ public extension UIScrollView{
             header?.removeFromSuperview()
         }
     }
+    
+    public var headerRefresherState: RefreshHeaderState {
+        get {
+            let header = self.viewWithTag(PullToRefreshKitConst.headerTag) as? RefreshHeaderContainer
+            return header?.state ?? RefreshHeaderState.idle
+        }
+    }
 }
 
 // MARK: - Footer API  -
@@ -157,6 +164,13 @@ public extension UIScrollView{
             footer?.updateToNoMoreData()
         case .removed:
             footer?.removeFromSuperview()
+        }
+    }
+    
+    public var footerRefresherState: RefreshFooterState {
+        get {
+            let header = self.viewWithTag(PullToRefreshKitConst.footerTag) as? RefreshFooterContainer
+            return header?.state ?? .idle
         }
     }
 }

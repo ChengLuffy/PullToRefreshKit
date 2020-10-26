@@ -196,13 +196,14 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     }
 }
 
+@objc public enum RefreshFooterState: Int {
+    case idle = 0
+    case refreshing
+    case willRefresh
+    case noMoreData
+}
+
 class RefreshFooterContainer:UIView{
-    enum RefreshFooterState {
-        case idle
-        case refreshing
-        case willRefresh
-        case noMoreData
-    }
 // MARK: - Propertys -
     var refreshAction:(()->())?
     var attachedScrollView:UIScrollView!
