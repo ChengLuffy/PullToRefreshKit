@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 
-struct PullToRefreshKitConst{
+public struct PullToRefreshKitConst{
     //KVO
     static let KPathOffSet = "contentOffset"
     static let KPathPanState = "state"
