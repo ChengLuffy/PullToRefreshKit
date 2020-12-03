@@ -57,7 +57,7 @@ open class DefaultRefreshLeft: UIView, RefreshableLeftRight {
         addSubview(imageView)
         addSubview(textLabel)
         textLabel.frame = CGRect(x: 10,y: 0,width: 20,height: frame.size.height)
-        textLabel.font = UIFont.systemFont(ofSize: 14)
+        textLabel.font = UIFont.systemFont(ofSize: PullToRefreshKitConst.refreshFontSize)
         textLabel.autoresizingMask = .flexibleHeight
         textLabel.numberOfLines = 0
         imageView.frame = CGRect(x: 0, y: 0,width: 20, height: 20)

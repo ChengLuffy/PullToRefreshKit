@@ -116,7 +116,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
         let image = UIImage(named: "arrow_down", in: Bundle(for: DefaultRefreshHeader.self), compatibleWith: nil)
         imageView.image = image
         imageView.sizeToFit()
-        textLabel.font = UIFont.systemFont(ofSize: 14)
+        textLabel.font = UIFont.systemFont(ofSize: PullToRefreshKitConst.refreshFontSize)
         textLabel.textAlignment = .center
         self.isHidden = true
         //Default text

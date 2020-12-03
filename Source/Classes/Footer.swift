@@ -124,7 +124,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
         textDic[.tapToRefresh] = PullToRefreshKitFooterString.tapToRefresh
         textDic[.scrollAndTapToRefresh] = PullToRefreshKitFooterString.scrollAndTapToRefresh
         udpateTextLabelWithMode(refreshMode)
-        textLabel.font = UIFont.systemFont(ofSize: 14)
+        textLabel.font = UIFont.systemFont(ofSize: PullToRefreshKitConst.refreshFontSize)
         textLabel.textAlignment = .center
         tap = UITapGestureRecognizer(target: self, action: #selector(DefaultRefreshFooter.catchTap(_:)))
         self.addGestureRecognizer(tap)
