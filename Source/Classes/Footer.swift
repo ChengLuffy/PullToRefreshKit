@@ -103,6 +103,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
         case .scrollAndTap:
             textLabel.text = textDic[.scrollAndTapToRefresh]
         }
+        textLabel.sizeToFit()
     }
     
     fileprivate var tap:UITapGestureRecognizer!
@@ -113,6 +114,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     open  func setText(_ text:String,mode:RefreshKitFooterText){
         textDic[mode] = text
         textLabel.text = textDic[.pullToRefresh]
+        textLabel.sizeToFit()
     }
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -149,6 +151,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     open func didBeginRefreshing() {
         self.isUserInteractionEnabled = true
         textLabel.text = textDic[.refreshing];
+        textLabel.sizeToFit()
         spinner.startAnimating()
     }
     open func didEndRefreshing() {
@@ -158,6 +161,7 @@ open class DefaultRefreshFooter:UIView, RefreshableFooter{
     open func didUpdateToNoMoreData(){
         self.isUserInteractionEnabled = false;
         textLabel.text = textDic[.noMoreData]
+        textLabel.sizeToFit()
     }
     open func didResetToDefault() {
         self.isUserInteractionEnabled = true

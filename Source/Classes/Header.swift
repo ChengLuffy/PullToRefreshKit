@@ -126,6 +126,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
         textDic[.refreshFailure] = PullToRefreshKitHeaderString.refreshFailure
         textDic[.refreshing] = PullToRefreshKitHeaderString.refreshing
         textLabel.text = textDic[.pullToRefresh]
+        textLabel.sizeToFit()
     }
     
     open override func layoutSubviews() {
