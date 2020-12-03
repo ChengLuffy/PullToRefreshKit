@@ -27,7 +27,7 @@ public struct PullToRefreshKitConst{
     static let leftTag   = 100003
     static let rightTag  = 100004
 
-    static var refreshFontSize: CGFloat     = 14
+    public static var refreshFontSize: CGFloat     = 14
 }
 
 func PTRLocalize(_ string:String)->String{
