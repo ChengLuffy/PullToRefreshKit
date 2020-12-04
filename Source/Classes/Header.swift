@@ -117,7 +117,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
         imageView.image = image
         imageView.sizeToFit()
         textLabel.font = UIFont.systemFont(ofSize: PullToRefreshKitConst.refreshFontSize)
-        textLabel.textAlignment = .center
+        textLabel.textAlignment = .left
         self.isHidden = true
         //Default text
         textDic[.pullToRefresh] = PullToRefreshKitHeaderString.pullDownToRefresh
@@ -131,10 +131,13 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
     
     open override func layoutSubviews() {
         super.layoutSubviews()
-        imageView.frame = CGRect(x: 0, y: 0, width: 20, height: 20)
-        imageView.center = CGPoint(x: frame.width/2 - 70 - 20, y: frame.size.height/2)
+        let fontSize = PullToRefreshKitConst.refreshFontSize
+        textLabel.sizeToFit()
+        imageView.frame = CGRect(x: 0, y: 0, width: fontSize, height: fontSize)
+        imageView.center = CGPoint(x: frame.width/2 - textLabel.frame.size.width / 2 - fontSize, y: frame.size.height/2)
+        spinner.frame.size = CGSize.init(width: fontSize, height: fontSize)
         spinner.center = imageView.center
-        textLabel.center = CGPoint(x: frame.size.width/2, y: frame.size.height/2);
+        textLabel.frame.origin = CGPoint(x: imageView.frame.origin.x + fontSize + 10, y: frame.size.height/2 - PullToRefreshKitConst.refreshFontSize / 2 - 5);
     }
     
     required public init?(coder aDecoder: NSCoder) {
@@ -209,6 +212,7 @@ open class DefaultRefreshHeader: UIView, RefreshableHeader {
     open func didBeginRefreshingState() {
         self.isHidden = false
         textLabel.text = textDic[.refreshing]
+        textLabel.sizeToFit()
         spinner.startAnimating()
         imageView.isHidden = true
     }
